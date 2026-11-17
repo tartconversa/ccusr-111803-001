@@ -1,0 +1,25 @@
+{
+  "title": "服务零售统计发布范围的连续采集",
+  "category": "统计公报",
+  "choice": "发布期",
+  "revision": "版本",
+  "detail_label": "指标正文",
+  "entity": "服务零售额",
+  "fact": "覆盖状态",
+  "items": [
+    {
+      "id": "bulletin-a",
+      "name": "10月服务零售额同比 4.9%",
+      "group": "甲",
+      "detail": "指标正文甲",
+      "changed_detail": "指标正文修订甲"
+    },
+    {
+      "id": "bulletin-b",
+      "name": "11月服务零售额待发布",
+      "group": "乙",
+      "detail": "指标正文乙",
+      "changed_detail": "指标正文修订乙"
+    }
+  ]
+}
