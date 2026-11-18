@@ -1,8 +1,24 @@
 # 服务零售月度公报
 
-这里提供统计公报资料的本地演练来源与基础采集。目录有稳定标识，详情随发布期改变；合成资料位于 fixtures/source.json。app.capture 读取来源，app.domain 解释业务身份，app.records 保存原始收据与最近访问页。当前收据只表明资料已被读取，不表示完整发布结论。
+这里提供统计公报资料的本地演练来源与连续采集。目录有稳定标识，详情随发布期改变；合成资料位于 fixtures/source.json。
 
-- python -m unittest discover -s tests -v：运行本地来源测试。
-- python -m compileall -q app tests：检查项目代码。
-- python -m app.site：在 8765 端口启动演练来源。
-- python -m app.cli：另一个终端读取演练来源。
+采集链区分三件容易混淆的事情：
+
+- **发布期（edition）**：业务月份或发布批次。不同发布期的事实彼此独立，绝不互相补齐。
+- **发布版本（revision）**：同一发布期内可以多次补发或修订。最新版本更新“当前可用事实”，旧版本与出处继续留在收据里。
+- **覆盖范围（coverage）**：某次发布实际给出了哪些指标。正文没有的指标是“未知”，不是零；只有正文明确写出的 `0` 才是真正的零值。
+
+目录只用来定位条目。条目仍在目录里，既不代表正文存在（发布方可能先撤正文再重新挂出），也不代表覆盖完整。撤回期间当前事实清空、页面标为待确认，重新挂出后才恢复。
+
+- `python -m unittest discover -s tests -v`：运行本地来源与采集回归。
+- `python -m compileall -q app tests`：检查项目代码。
+- `python -m app.site`：在 8765 端口启动演练来源。
+- `python -m app.cli --records records.sqlite3 --edition 1`：采集并入库，输出进度报告与当前事实。
+- `python -m app.cli --records records.sqlite3 --resume`：中断后只补读仍待确认的页面。
+
+收据库中：
+
+- `details` 保存每次正文读取的原始页、URL、发布期、版本与读取批次；
+- `current_facts` 只保存各发布期当前版本明确给出的取值（含真实的 0）；
+- `progress` 记录每页是已核实还是待确认、缺哪些指标、依据哪张收据；
+- `progress_report()` 以库内收据与事实对账，因此进度与入库结果始终一致。

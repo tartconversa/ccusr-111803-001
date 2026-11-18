@@ -12,14 +12,75 @@
       "name": "10月服务零售额同比 4.9%",
       "group": "甲",
       "detail": "指标正文甲",
-      "changed_detail": "指标正文修订甲"
+      "changed_detail": "指标正文修订甲",
+      "editions": {
+        "1": [
+          {
+            "revision": "1",
+            "status": "published",
+            "required_coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "coverage": ["total"],
+            "facts": {"total": 4.9}
+          },
+          {
+            "revision": "2",
+            "status": "published",
+            "required_coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "facts": {"total": 4.9, "tourism_consulting": 6.1, "culture_sports_leisure": 0}
+          }
+        ],
+        "2": [
+          {
+            "revision": "2",
+            "status": "published",
+            "required_coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "coverage": ["total"],
+            "facts": {"total": 3.8}
+          }
+        ]
+      }
     },
     {
       "id": "bulletin-b",
       "name": "11月服务零售额待发布",
       "group": "乙",
       "detail": "指标正文乙",
-      "changed_detail": "指标正文修订乙"
+      "changed_detail": "指标正文修订乙",
+      "editions": {
+        "1": [
+          {
+            "revision": "1",
+            "status": "published",
+            "required_coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "facts": {"total": 5.2, "tourism_consulting": 2.0, "culture_sports_leisure": 1.0}
+          },
+          {
+            "revision": "2",
+            "status": "withdrawn",
+            "required_coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "coverage": [],
+            "facts": {}
+          },
+          {
+            "revision": "3",
+            "status": "published",
+            "required_coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "facts": {"total": 5.3, "tourism_consulting": 2.2, "culture_sports_leisure": 1.1}
+          }
+        ],
+        "2": [
+          {
+            "revision": "2",
+            "status": "published",
+            "required_coverage": ["total", "tourism_consulting", "culture_sports_leisure"],
+            "coverage": ["total", "tourism_consulting"],
+            "facts": {"total": 4.4, "tourism_consulting": 3.3}
+          }
+        ]
+      }
     }
   ]
 }
